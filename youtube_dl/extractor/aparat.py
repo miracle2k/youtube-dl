@@ -85,7 +85,7 @@ class AparatIE(InfoExtractor):
         info = self._search_json_ld(webpage, video_id, default={})
 
         if not info.get('title'):
-            info['title'] = player['title']
+            info['title'] = player.get('title', '')
 
         return merge_dicts(info, {
             'id': video_id,
